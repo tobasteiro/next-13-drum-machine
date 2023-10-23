@@ -1,21 +1,29 @@
-import React from 'react';
+"use client";
 
-import Header from '../components/Header';
+import React from "react";
 
-import './styles.css';
+import Header from "../components/Header";
+
+import "./styles.css";
+
+export const MuteContext = React.createContext();
 
 function RootLayout({ children }) {
+  const [muted, setMuted] = React.useState(false);
+
   return (
-    <html lang="en">
-      <body>
-        <Header />
-        {children}
-        <footer>
-          <img src="/ie-badge.gif" width={100} />
-          <span>Thanks for visiting!</span>
-        </footer>
-      </body>
-    </html>
+    <MuteContext.Provider value={{ muted, setMuted }}>
+      <html lang="en">
+        <body>
+          <Header />
+          {children}
+          <footer>
+            <img src="/ie-badge.gif" width={100} />
+            <span>Thanks for visiting!</span>
+          </footer>
+        </body>
+      </html>
+    </MuteContext.Provider>
   );
 }
 
