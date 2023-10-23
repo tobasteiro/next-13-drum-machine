@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 
 import Header from "../components/Header";
@@ -12,6 +11,7 @@ function RootLayout({ children }) {
   const [muted, setMuted] = React.useState(false);
 
   return (
+    //If it moved to its own component, it can be client cmp and not the layout
     <MuteContext.Provider value={{ muted, setMuted }}>
       <html lang="en">
         <body>
